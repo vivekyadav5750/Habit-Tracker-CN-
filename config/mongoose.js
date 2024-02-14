@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/habitTracker', {useNewUrlParser: true});
+const dotenv = require('dotenv');
+dotenv.config();
+mongo_url = process.env.MONGO_URL;
+mongoose.connect(mongo_url);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
